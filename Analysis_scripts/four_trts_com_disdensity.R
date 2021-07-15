@@ -78,10 +78,10 @@ bf <- bf(formula = I_all ~ as.factor(day) + tempz + richnessz,
 get_prior(bf, data = df_AD)
 fit_AD <- brm(bf, data = df_AD,
               prior = c( prior(normal(0, 1), class = b)),
-              iter = 2000, chains = 4, cores = 4) #richness = pos
-fit_SD <- update(fit_AD, newdata = df_SD) #richness = Neg
-fit_AS <- lapply(df_AS, function(x) update(fit_AD, newdata = x)) #richness = pos
-fit_SS <- lapply(df_SS, function(x) update(fit_AD, newdata = x)) #richness = pos
+              iter = 2000, chains = 4, cores = 4) 
+fit_SD <- update(fit_AD, newdata = df_SD) 
+fit_AS <- lapply(df_AS, function(x) update(fit_AD, newdata = x)) 
+fit_SS <- lapply(df_SS, function(x) update(fit_AD, newdata = x)) 
 
 #check out fit--they're fine.
 pp_check(fit_AD, nsamples = 100)
