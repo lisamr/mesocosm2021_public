@@ -1,0 +1,5 @@
+b_richnessz,.lower,.upper,.width,.point,.interval,model
+1.25,0.95,1.58,0.9,median,hdci,AD
+-0.31,-0.49,-0.12,0.9,median,hdci,SD
+1.75,1.4,2.08,0.9,median,hdci,AS
+0.38,-0.2,0.94,0.9,median,hdci,SS
