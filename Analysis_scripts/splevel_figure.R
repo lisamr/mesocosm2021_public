@@ -22,7 +22,7 @@ B
 newdat <- expand_grid(
   a0 = 1, 
   richness = 0,
-  n_others = unname(quantile(merged_filtered$n_others_z, probs = c(0,.5, 1))),
+  n_others = unname(quantile(merged_filtered$n_others_z, probs = c(.1,.5, .9))),
   n_radish = seq(min(merged_filtered$n_radish_zsq), max(merged_filtered$n_radish_zsq), length.out = 30)
 )
 
