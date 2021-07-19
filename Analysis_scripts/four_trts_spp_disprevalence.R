@@ -7,6 +7,7 @@ library(tidybayes)
 library(brms)
 library(loo)
 library(bayesplot)
+library(PNWColors)
 
 #===============================================================================
 #functions
@@ -113,7 +114,7 @@ effects_list <- list(
 )
 post_ALL <- bind_rows(effects_list) %>% 
   mutate_at(vars(sp_ef:.width), function(x) round(x, 2))
-
+print(post_ALL, n = Inf)
 
 write_csv(post_ALL, file = 'Outputs/four_trts_spdisprev.csv')
 
@@ -208,7 +209,7 @@ postpreds <- map2(effects_list, postpreds,
 # ggplot theme stuff
 theme_set(theme_classic())
 noaxislab <- theme(axis.title = element_blank(), plot.title = element_text(hjust = .5), legend.position = 'none')
-sp_pal <- c('#F16745', '#FFC65D', '#7BC8A4', '#4CC3D9', '#93648D', '#404040')
+sp_pal <- rev(pnw_palette(name = 'Bay', n=6))
 
 #function for plotting
 f_plot <- function(i, predictions, d, Title){
@@ -249,4 +250,4 @@ p1 <- plot_grid(
   draw_label('Species-specific disease prevalence', x = .01, y = .5, angle = 90, size = 11)
 plot_grid(p1, get_legend(plegend), nrow = 2, rel_heights = c(.9, .1), scale = c(.95, .85))
 
-ggsave('Figures/four_trts_spp_prev.pdf', device = 'pdf', units = 'mm', width = 181, height = 110)
+ggsave('Figures/four_trts_spp_prev.pdf', device = 'pdf', units = 'in', width = 6, height = 3.9)
