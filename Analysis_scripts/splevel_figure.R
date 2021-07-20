@@ -1,10 +1,11 @@
 #plot out species-level model results from all trays
 
 library(tidyverse)
-
+library(tidybayes)
+library(brms)
 merged <- read_csv('Outputs/merged_splevelanalysis.csv')
 fit <- read_rds('Outputs/splevel_alltrays_fit3.rds')
-
+theme_set(theme_classic())
 #===============================================================================
 #posterior predictions, plotting prevalence for only 1 species (radish)
 #===============================================================================
@@ -48,7 +49,7 @@ ggplot(predictionsdf) +
   geom_line(aes(n_radish, median, group = n_others, color = n_others)) +
   geom_point(data = merged_filtered, aes(n_radish_zsq, I/n, color = n_others_z), size = 1) +
   scale_color_viridis_c(option = 'D', direction = -1) +
-  scale_fill_viridis_c(option = 'D', direction = -1) +
+  scale_fill_viridis_c(option = 'D', direction = -1, guide = 'none') +
   labs(color = 'density of \nother species', fill = 'density of \nother species',
        y = 'Disease prevalence of radish', x = 'Density of radish') + 
   theme(legend.position = 'bottom', legend.key.size = unit(.1, 'in'), 
