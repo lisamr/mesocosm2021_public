@@ -1,3 +1,6 @@
+library(tidyverse)
+theme_set(theme_classic())
+
 df <- read_csv('data/plant_level_data.csv')
 head(df)
 
@@ -28,5 +31,6 @@ ggsave('Figures/prop_rad_supplementary.pdf', width = 4, height = 3)
 
 ggplot(tmp, aes(richness, rad_dens, group = tray_type)) +
   geom_jitter(height= 0,width = .1, alpha = .7, aes(color = tray_type)) +
-  labs(x = 'Richness', y = 'Proportion radish', color = 'Tray type') +
+  labs(x = 'Richness', y = 'Radish plants', color = 'Tray type') +
   theme(legend.position = 'bottom')
+ggsave('Figures/rad_density_supplementary.pdf', width = 4, height = 3)
