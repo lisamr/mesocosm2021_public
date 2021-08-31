@@ -26,7 +26,7 @@ sumtozero <- function(df){
 #load data
 #===============================================================================
 
-plantdf <- read_csv('Data/plant_level_data.csv')
+#plantdf <- read_csv('Data/plant_level_data.csv')
 traydf <- read_csv('Data/tray_level_data.csv')
 trts <- readRDS('Data/treatments_list.RDS')
 
@@ -73,7 +73,7 @@ for(i in 1:ncol(perms_SS)){
 #===============================================================================
 
 # negative binomial model
-bf <- bf(formula = I_all ~ as.factor(day) + tempz + richnessz,
+bf <- bf(formula = I_nonchall ~ as.factor(day) + tempz + richnessz,
           family = negbinomial())
 get_prior(bf, data = df_AD)
 fit_AD <- brm(bf, data = df_AD,

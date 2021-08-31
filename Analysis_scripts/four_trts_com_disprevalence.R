@@ -26,7 +26,7 @@ source('Analysis_scripts/betabinom_custom_brms.R') #for using beta-binomial like
 #load data
 #===============================================================================
 
-plantdf <- read_csv('Data/plant_level_data.csv')
+#plantdf <- read_csv('Data/plant_level_data.csv')
 traydf <- read_csv('Data/tray_level_data.csv')
 trts <- readRDS('Data/treatments_list.RDS')
 
@@ -73,7 +73,7 @@ for(i in 1:ncol(perms_SS)){
 #===============================================================================
 
 # Beta-binomial model
-bf <- bf(formula = I_all|vint(n_allP.na) ~ as.factor(day) + tempz + richnessz,
+bf <- bf(formula = I_nonchall|vint(n_nonchall) ~ as.factor(day) + tempz + richnessz,
          family = beta_binomial2)
 get_prior(bf, data = df_AD)
 fit_AD <- brm(bf, data = df_AD,
