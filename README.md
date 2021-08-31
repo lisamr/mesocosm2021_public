@@ -9,5 +9,4 @@ Code for models and figures analyzing diversity-disease patterns in greenhouse m
 - four_trts_spp_disprevalence.R: seperate models for each of the four community assembly treatments; response variable = species-level prevalence of diseased inviduals 
 - host_competence_calculation.R: simple calculations of mean and SD of host competence, estimated from monospecific trays
 - prop_radish_supplementary.R: code to produce supp. figure regressing radish density against richness. 
-- splevel_figure.R: Will probably remove, but the code to produce a figure predicting radish disease prevalence as a funciton of radish density and other species' densiites.  
 - splevel_models.R: Model assessing species-level disease prevalence from all trays togehter. See results under section "Drivers of species-level disease prevalence".
