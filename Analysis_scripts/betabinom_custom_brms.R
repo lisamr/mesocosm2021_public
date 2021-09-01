@@ -1,4 +1,5 @@
 #code needed for defining beta-binomial as a custom family
+# copied from vignette, written by Paul Burkner: https://cran.r-project.org/web/packages/brms/vignettes/brms_customfamilies.html
 
 library(brms)
 beta_binomial2 <- custom_family(
