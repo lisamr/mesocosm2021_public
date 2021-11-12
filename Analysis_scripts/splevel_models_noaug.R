@@ -49,7 +49,6 @@ merged <- left_join(plantdata, traydata) %>%
 merged <- sumtozero(merged)
 
 
-
 #===============================================================================
 #run brms model
 #===============================================================================
@@ -130,4 +129,3 @@ write_rds(fit1, 'Outputs/splevel_alltrays_fit1_noaug.rds')
 write_rds(fit3, 'Outputs/splevel_alltrays_fit3_noaug.rds')
 write_rds(fit4, 'Outputs/splevel_alltrays_fit4_noaug.rds')
 write_rds(fit5, 'Outputs/splevel_alltrays_fit5_noaug.rds')
-

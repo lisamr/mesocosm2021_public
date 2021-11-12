@@ -23,27 +23,28 @@ for(i in 1:length(plantlist)){
   plantlist[[i]]$nearestC <- dist_NN(plantlist[[i]]) 
 } 
 
-plantdf2 <- bind_rows(plantlist)
+plantdf2 <- bind_rows(plantlist) %>% 
+  filter(state0_v2 == 'S', !is.na(state_final)) 
 
 
 # look at spatial patterns?? ==================================================
 
 # distance to nearest challenged host for all non-challenged individuals
 
-p1 <- plantdf2 %>% 
-  filter(state0_v2 == 'S') %>% 
-  ggplot(., aes(species, nearestC)) +
+p1 <- ggplot(plantdf2, aes(species, nearestC)) +
   geom_jitter(height = 0, width = .2, alpha = .02, color = 'slateblue') +
   geom_boxplot(outlier.colour = NA, fill = NA, notch = F) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(y = 'Distance to nearest \nchallenged plant (cm)', 
        x = 'Species',
-       title = 'All non-challenged plants')
+       title = 'All non-challenged plants') + 
+  annotate(geom="text", x=5, y=15, label="n = 32,926 plants",
+           color="black", size = 3)
   
+
 
 # mean distance to nearest challenged host, grouped by tray and species
 p2 <- plantdf2 %>% 
-  filter(state0_v2 == 'S') %>% 
   group_by(trayID, species) %>% 
   summarise(mean = mean(nearestC)) %>% 
   ggplot(., aes(species, mean)) +
@@ -52,7 +53,9 @@ p2 <- plantdf2 %>%
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(y = 'Mean distance to nearest \nchallenged plant (cm)', 
        x = 'Species',
-       title = 'Grouped by tray')
+       title = 'Grouped by tray and species')+   
+  annotate(geom="text", x=5, y=6.2, size = 3,
+           label="n = 487 \ntray-species groups", color="black")
 
 
 cowplot::plot_grid(p1, p2, labels = 'auto')  
