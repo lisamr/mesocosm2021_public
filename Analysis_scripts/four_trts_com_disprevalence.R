@@ -139,7 +139,7 @@ ppreds <- function(post, df){
   R1 <- min(df$richnessz)
   R2 <- max(df$richnessz)
   rseq <- seq(R1, R2, length.out = 10)
-  postpred <- sapply(rseq, function(x) inv_logit_scaled(post$b_Intercept + x*post$b_richnessz)) 
+  postpred <- sapply(rseq, function(x)  inv_logit_scaled(post$b_Intercept + x*post$b_richnessz)) 
   
   #summarize into df
   median = apply(postpred, 2, median)
@@ -160,7 +160,6 @@ f_plot_d <- function(predictions, df, Color, Title, Linetype=1){
     scale_y_continuous(limits = c(0,1))
 }
 
-
 #plot them
 pred_AD <- ppreds(posterior_samples(fit_AD), df_AD)
 pred_SD <- ppreds(posterior_samples(fit_SD), df_SD)
@@ -177,7 +176,7 @@ plot_grid(
 ) +
   draw_label('Richness', x = .5, y = 0, vjust = -.5, size = 11) + 
   draw_label('Community disease prevalence', x = .01, y = .5, angle = 90, size = 11)
-ggsave('Figures/four_trts_comm_prev.pdf', device = 'pdf', units = 'mm', width = 181, height = 100)
+ggsave('Figures/four_trts_comm_prev.pdf', device = 'pdf', units = 'in', width = 6, height = 4, dpi = 600)
 
 
 

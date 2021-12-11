@@ -250,4 +250,4 @@ p1 <- plot_grid(
   draw_label('Species-specific disease prevalence', x = .01, y = .5, angle = 90, size = 11)
 plot_grid(p1, get_legend(plegend), nrow = 2, rel_heights = c(.9, .1), scale = c(.95, .85))
 
-ggsave('Figures/four_trts_spp_prev.pdf', device = 'pdf', units = 'in', width = 6, height = 3.9)
+ggsave('Figures/four_trts_spp_prev.pdf', device = 'pdf', units = 'in', width = 6, height = 4.6)
