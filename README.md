@@ -10,3 +10,5 @@ Code for models and figures analyzing diversity-disease patterns in greenhouse m
 - host_competence_calculation.R: simple calculations of mean and SD of host competence, estimated from monospecific trays
 - prop_radish_supplementary.R: code to produce supp. figure regressing radish density against richness. 
 - splevel_models.R: Model assessing species-level disease prevalence from all trays togehter. See results under section "Drivers of species-level disease prevalence".
+
+Contact lrosenthal@ucdavis.edu for questions.
