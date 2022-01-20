@@ -1,3 +1,5 @@
+Lisa M. Rosenthal, Wesley R. Brooks, David M. Rizzo. "Species densities, assembly order, and competence jointly determine the diversity–disease relationship", Ecology 2022. https://doi.org/10.1002/ecy.3622
+
 # mesocosm2021_public
 Code for models and figures analyzing diversity-disease patterns in greenhouse mesocosms
 
